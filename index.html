@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Software Renderer</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/main.js" type="module"></script>
+    <script src="http://www.yanhuangxueyuan.com/threejs/build/three.js"></script>
+</head>
+
+
+<body>
+<div class="head">
+    <p class="title">3D Software Renderer</p>
+    <p id="frame_counter">0fps</p>
+</div>
+
+<br>
+<div class="body">
+    <canvas id="canvas" width="800px" height="600px"></canvas>
+    <div class="body2" width="800px",height="450px"></canvas>
+    <div class="dropdown">
+        <button class="dropbtn">清晰度</button>
+        <div class="dropdown-content">
+            <div class="opt" id="res1">1pxiel</div>
+            <div class="opt" id="res2">2pxiels</div>
+            <div class="opt" id="res4">4pixels</div>
+            <div class="opt" id="res5">5pixels</div>
+            <div class="opt" id="res8">8pixels</div>
+            <div class="opt" id="res10">10pixels</div>
+            <div class="opt" id="res20">20pixels</div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">滤镜</button>
+        <div class="dropdown-content">
+            <div class="opt" id="psp1">赛博朋克</div>
+            <div class="opt" id="psp2">朦胧</div>
+        </div>
+      </div>
+      <div class="dropdown">
+          <button class="dropbtn">操作说明</button>
+          <div class="dropdown-content2">
+            <p>移动：使用WASD或上下左右</p>
+            <p>视角转动：鼠标拖拽或q e</p>
+            <p>上下移动：空格：上移 c：下移</p>
+            <p>注意：可选择清晰度、滤镜</p>
+          </div>
+      </div>
+ 
+
+    </div>
+</div>
+
+<script>
+    //创建渲染器，添加到dom当中, antialias（是否启用抗锯齿）
+    var renderer = new THREE.WebGLRenderer({antialias: true});
+    //设置渲染器的尺寸
+    renderer.setSize(800, 450);
+    //将渲染器放置到页面当中
+    let x = document.getElementsByClassName("body2")
+    document.body.appendChild(renderer.domElement);
+
+    //创建场景
+    var scene = new THREE.Scene();
+
+    //创建相机，设置位置
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 4000);
+    //设置相机的位置
+    camera.position.set(0, 0, 3);
+
+    //创建一个平行光光源照射到物体上
+    var light = new THREE.DirectionalLight(0xffffff, 1.5);
+    //设置平型光照射方向，照射方向为设置的点照射到原点
+    light.position.set(0, 0, 1);
+    //将灯光放到场景当中
+    scene.add(light);
+
+    //创建一个接受光照并带有纹理映射的立方体，并添加到场景中
+    //首先，获取到纹理
+    var map = THREE.ImageUtils.loadTexture("./imgs/bricks3.png");
+
+    //然后创建一个phong材质来处理着色，并传递给纹理映射
+    var material = new THREE.MeshPhongMaterial({map: map});
+
+    //创建一个立方体的几何体
+    var geometry = new THREE.CubeGeometry(1, 1, 1);
+
+    //将集合体和材质放到一个网格中
+    var cube = new THREE.Mesh(geometry, material);
+
+    //将立方体网格添加到场景中
+    scene.add(cube);
+
+    //声明一个判断是否旋转的变量
+    var rotationBool = true;
+
+    (function animate() {
+        renderer.render(scene, camera);
+
+        if (rotationBool) {
+            cube.rotation.x += 0.02;
+            cube.rotation.y += 0.02;
+        }
+
+        requestAnimationFrame(animate);
+    })();
+
+    document.body.onclick = function () {
+        rotationBool = !rotationBool;
+    }
+
+</script>
+</body>
+
+</html>
