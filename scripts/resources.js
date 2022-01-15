@@ -1,27 +1,27 @@
 let textures =
 {
-    "wukong": ["..//imgs//wukong.png",[600,600]],
-    "container": ["..//imgs//container2.png", [500, 500]],
-    "skybox": ["..//imgs//room2.jpeg", [1025, 670]],
-    "xuehua":["..//imgs//xuehua.jpeg", [1024,1024]],
-    "santa":["..//imgs//santa.jpeg", [641,641]],
-    "snow":["..//imgs//snow.jpeg", [3840,2160]],
-    "santatree":["..//imgs//santatree.jpeg", [768,1024]],
-    "gift":["..//imgs//gift.jpeg", [320,320]],
-    "lightball":["..//imgs//lightball.jpeg", [522,549]],
-    "floor":["..//imgs//floor.jpeg", [310,310]]
+    "wukong": ["https://fanqingm.github.io/CG-SoftWareRender//imgs//wukong.png",[600,600]],
+    "container": ["https://fanqingm.github.io/CG-SoftWareRender//imgs//container2.png", [500, 500]],
+    "skybox": ["https://fanqingm.github.io/CG-SoftWareRender//imgs//room2.jpeg", [1025, 670]],
+    "xuehua":["https://fanqingm.github.io/CG-SoftWareRender//imgs//xuehua.jpeg", [1024,1024]],
+    "santa":["https://fanqingm.github.io/CG-SoftWareRender//imgs//santa.jpeg", [641,641]],
+    "snow":["https://fanqingm.github.io/CG-SoftWareRender//imgs//snow.jpeg", [3840,2160]],
+    "santatree":["https://fanqingm.github.io/CG-SoftWareRender//imgs//santatree.jpeg", [768,1024]],
+    "gift":["https://fanqingm.github.io/CG-SoftWareRender//imgs//gift.jpeg", [320,320]],
+    "lightball":["https://fanqingm.github.io/CG-SoftWareRender//imgs//lightball.jpeg", [522,549]],
+    "floor":["https://fanqingm.github.io/CG-SoftWareRender//imgs//floor.jpeg", [310,310]]
 
 };
 
 let models =
 {
-    "cube": "..//models//cube.obj",
-    "sphere": "..//models//sphere.obj",
-    "sphere2": "..//models//sphere2.obj",
-    "monkey": "..//models//monkey2.obj",
-    "man": "./models/man.obj",
-    "tree": "./models/tree.obj",
-    "ball": "./models/ball.obj",
+    "cube": "https://fanqingm.github.io/CG-SoftWareRender//models//cube.obj",
+    "sphere": "https://fanqingm.github.io/CG-SoftWareRender//models//sphere.obj",
+    "sphere2": "https://fanqingm.github.io/CG-SoftWareRender//models//sphere2.obj",
+    "monkey": "https://fanqingm.github.io/CG-SoftWareRender//models//monkey2.obj",
+    "man": "https://fanqingm.github.io/CG-SoftWareRender//models/man.obj",
+    "tree": "https://fanqingm.github.io/CG-SoftWareRender//models/tree.obj",
+    "ball": "https://fanqingm.github.io/CG-SoftWareRender//models/ball.obj",
 };
 
 export { models, textures};
